@@ -511,7 +511,9 @@ h3 {
 .services-grid,
 .projects-grid,
 .contact-links,
-.about-layout {
+.about-layout,
+.experience-grid,
+.cv-layout {
   display: grid;
   gap: 1.1rem;
 }
@@ -520,7 +522,10 @@ h3 {
 .about-card,
 .service-card,
 .project-card,
-.contact-panel {
+.contact-panel,
+.experience-card,
+.cv-card,
+.cv-viewer {
   padding: 1.35rem;
   border-radius: var(--radius-md);
 }
@@ -530,6 +535,9 @@ h3 {
 .service-card::before,
 .project-card::before,
 .contact-panel::before,
+.experience-card::before,
+.cv-card::before,
+.cv-viewer::before,
 .terminal-card::before,
 .code-panel::before {
   content: "";
@@ -694,12 +702,16 @@ h3 {
 .about,
 .services,
 .projects,
+.experience,
+.cv,
 .contact {
   position: relative;
 }
 
 .services::before,
 .projects::before,
+.experience::before,
+.cv::before,
 .contact::before {
   content: "";
   position: absolute;
@@ -750,6 +762,7 @@ h3 {
 
 .service-card,
 .project-card,
+.experience-card,
 .contact-item,
 .about-card {
   transition:
@@ -761,7 +774,10 @@ h3 {
 
 .about-card,
 .service-card,
-.project-card {
+.project-card,
+.experience-card,
+.cv-card,
+.cv-viewer {
   display: grid;
   align-content: start;
   gap: 0.85rem;
@@ -775,6 +791,8 @@ h3 {
 .service-card:focus-within,
 .project-card:hover,
 .project-card:focus-within,
+.experience-card:hover,
+.experience-card:focus-within,
 .contact-item:hover,
 .contact-item:focus-visible,
 .about-card:hover,
@@ -802,6 +820,48 @@ h3 {
 .project-card {
   display: grid;
   gap: 1rem;
+}
+
+.experience-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.cv-layout {
+  align-items: start;
+}
+
+.cv-card {
+  background:
+    linear-gradient(180deg, rgba(255, 215, 0, 0.05), transparent 32%),
+    var(--gradient-panel);
+}
+
+.cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.cv-note {
+  margin: 0;
+  color: var(--color-muted);
+  max-width: 54ch;
+}
+
+.cv-viewer {
+  overflow: hidden;
+  min-height: 34rem;
+  padding: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 215, 0, 0.04), transparent 24%),
+    var(--gradient-panel);
+}
+
+.cv-viewer iframe {
+  width: 100%;
+  min-height: 34rem;
+  border: 0;
+  background: rgba(255, 255, 255, 0.96);
 }
 
 .project-type {
@@ -925,8 +985,13 @@ h3 {
   .hero-metrics,
   .services-grid,
   .projects-grid,
-  .about-layout {
+  .about-layout,
+  .experience-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cv-layout {
+    grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.4fr);
   }
 
   .contact-links {
@@ -954,8 +1019,16 @@ h3 {
   .about-card,
   .service-card,
   .project-card,
-  .contact-panel {
+  .contact-panel,
+  .experience-card,
+  .cv-card,
+  .cv-viewer {
     padding: 1.15rem;
+  }
+
+  .cv-viewer,
+  .cv-viewer iframe {
+    min-height: 28rem;
   }
 
   .footer-links {
@@ -1016,6 +1089,10 @@ h3 {
 
   .projects-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .experience-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .contact-panel {
