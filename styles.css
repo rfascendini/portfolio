@@ -518,6 +518,10 @@ h3 {
   gap: 1.1rem;
 }
 
+.hero-metrics {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .metric-card,
 .about-card,
 .service-card,
@@ -553,6 +557,9 @@ h3 {
     rgba(255, 215, 0, 0.1)
   );
   -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -857,6 +864,9 @@ h3 {
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
@@ -892,20 +902,22 @@ h3 {
 }
 
 .cv-layout {
+  display: flex;
   align-items: start;
+  justify-content: flex-end;
 }
 
-.cv-card {
+.cv-floating {
   width: 100%;
-  background:
-    linear-gradient(180deg, rgba(255, 215, 0, 0.05), transparent 32%),
-    var(--gradient-panel);
+  display: flex;
+  justify-content: flex-end;
 }
 
 .cv-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
+  justify-content: flex-end;
 }
 
 .cv-note {
@@ -1032,7 +1044,6 @@ h3 {
     flex-wrap: nowrap;
   }
 
-  .hero-metrics,
   .services-grid,
   .projects-grid,
   .about-layout,
