@@ -703,6 +703,7 @@ h3 {
 .services,
 .projects,
 .experience,
+.workflow-note,
 .cv,
 .contact {
   position: relative;
@@ -711,6 +712,7 @@ h3 {
 .services::before,
 .projects::before,
 .experience::before,
+.workflow-note::before,
 .cv::before,
 .contact::before {
   content: "";
@@ -824,6 +826,69 @@ h3 {
 
 .experience-grid {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.workflow-panel {
+  position: relative;
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(255, 215, 0, 0.08), transparent 24%),
+    var(--gradient-panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.workflow-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.22),
+    transparent 28%,
+    transparent 72%,
+    rgba(255, 215, 0, 0.1)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.workflow-copy {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.workflow-copy p {
+  margin: 0;
+}
+
+.workflow-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.workflow-highlights span {
+  padding: 0.6rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(29, 33, 77, 0.6);
+  border: 1px solid rgba(255, 215, 0, 0.12);
+  color: var(--color-text);
+  font-size: 0.84rem;
+}
+
+.workflow-highlights span:hover {
+  border-color: rgba(255, 215, 0, 0.26);
+  background: rgba(29, 33, 77, 0.82);
 }
 
 .cv-layout {
@@ -994,6 +1059,11 @@ h3 {
     grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.4fr);
   }
 
+  .workflow-panel {
+    grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+    align-items: start;
+  }
+
   .contact-links {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 2rem;
@@ -1023,6 +1093,10 @@ h3 {
   .experience-card,
   .cv-card,
   .cv-viewer {
+    padding: 1.15rem;
+  }
+
+  .workflow-panel {
     padding: 1.15rem;
   }
 
