@@ -896,6 +896,7 @@ h3 {
 }
 
 .cv-card {
+  width: 100%;
   background:
     linear-gradient(180deg, rgba(255, 215, 0, 0.05), transparent 32%),
     var(--gradient-panel);
@@ -911,22 +912,6 @@ h3 {
   margin: 0;
   color: var(--color-muted);
   max-width: 54ch;
-}
-
-.cv-viewer {
-  overflow: hidden;
-  min-height: 34rem;
-  padding: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 215, 0, 0.04), transparent 24%),
-    var(--gradient-panel);
-}
-
-.cv-viewer iframe {
-  width: 100%;
-  min-height: 34rem;
-  border: 0;
-  background: rgba(255, 255, 255, 0.96);
 }
 
 .project-type {
